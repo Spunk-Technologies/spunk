@@ -34,8 +34,8 @@ export function requireFromString(
   dir: string,
   disAllowedModules: string[],
 ) {
-  console.log(`Module.wrap(${filename}) = ${Module.wrap(src)}`);
-  console.log(`${filename} = ${src}`);
+  // console.log(`Module.wrap(${filename}) = ${Module.wrap(src)}`);
+  // console.log(`${filename} = ${src}`);
 
   const requireWithDisAllows: NodeRequire = new Proxy(
     require,
@@ -48,15 +48,20 @@ export function requireFromString(
     exports: {} as any,
   };
 
-  // function (exports, require, module, __filename, __dirname)
-  const f: (
-    exports: any,
-    require: NodeRequire,
-    module: typeof m,
-    filename: string,
-    dirname: string,
-  ) => void = new Function(`return ${Module.wrap(src)}`)();
-  f(m.exports, requireWithDisAllows, m, filename, dir);
+  try {
+    // function (exports, require, module, __filename, __dirname)
+    const f: (
+      exports: any,
+      require: NodeRequire,
+      module: typeof m,
+      filename: string,
+      dirname: string,
+    ) => void = new Function(`return ${Module.wrap(src)}`)();
+    f(m.exports, requireWithDisAllows, m, filename, dir);
+  } catch (e) {
+    console.log(`${filename} = ${src}`);
+    throw e;
+  }
 
   return m.exports;
 }

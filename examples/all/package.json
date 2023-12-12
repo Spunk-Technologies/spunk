@@ -5,7 +5,8 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
-    "framework": "workspace:^"
+    "framework": "workspace:^",
+    "react-dom": "^18.2.0"
   },
   "dependencies": {
     "react": "^18.2.0"

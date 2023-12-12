@@ -19,8 +19,8 @@ async function buildAndSaveRoutes(directory: string) {
         }
 
         const renderInfo = await buildRoute(routePath);
-        console.log(routePath, "Render Info:");
-        console.log(renderInfo);
+        // console.log(routePath, "Render Info:");
+        // console.log(renderInfo);
 
         const routeSplit = routePath.replace(ROUTER_DIR, "").split(".");
         routeSplit.pop();

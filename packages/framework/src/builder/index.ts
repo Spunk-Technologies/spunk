@@ -1,9 +1,10 @@
-import { build } from "esbuild";
-import { readFile } from "fs/promises";
 import { ROUTER_DIR, DEFAULT_RENDERING_STRATEGY } from "../config";
 import { RenderInfo, isRenderStrategy } from "../renderStrategies";
 import { requireFromString } from "../userModuleParser";
 import { renderStatic } from "./static";
+import { renderClientOnly } from "./clientOnly";
+import { CompileType, compile } from "../compiler/esbuild";
+import { tryOrPrint } from "../logging/errorHandling";
 
 // import {Server, render} from "@state-less/react-server";
 // import { jsx } from "@state-less/react-server/dist/jsxRenderer/jsx-runtime";
@@ -11,40 +12,10 @@ import { renderStatic } from "./static";
 // import { PrerenderedComponent } from "react-prerendered-component";
 
 export async function buildRoute(routeFile: string): Promise<RenderInfo> {
-  const { dependencies = {}, peerDependencies = {} } = JSON.parse(
-    (await readFile("./package.json", { encoding: "utf-8" })) || "{}",
-  );
-
-  const sharedConfig = {
-    entryPoints: [routeFile],
-    bundle: true,
-    minify: false,
-    write: false,
-    external: Object.keys(dependencies).concat(Object.keys(peerDependencies)),
-  };
-
-  // const buildFile = `${BUILD_DIR}/tmp/${route}.js`;
-  const buildResult = await build({
-    ...sharedConfig,
-    platform: "node", // for CJS
-    // outfile: buildFile,
-  });
-
-  if (buildResult.errors.length > 0) {
-    console.log(routeFile, "has errors");
-    for (const error of buildResult.errors) {
-      console.log(error);
-    }
-    throw new Error();
-  }
-
-  if ((buildResult.outputFiles?.length || 0) > 1) {
-    console.log(routeFile, "has than 1 output file?");
-    throw new Error();
-  }
+  const src: string = await compile(routeFile, CompileType.CommonJS);
 
   const { default: Component, render = DEFAULT_RENDERING_STRATEGY } =
-    requireFromString(buildResult.outputFiles![0].text, routeFile, ROUTER_DIR, [
+    requireFromString(src, routeFile, ROUTER_DIR, [
       // "@state-less/react-server",
     ]) || {};
 
@@ -73,7 +44,16 @@ export async function buildRoute(routeFile: string): Promise<RenderInfo> {
     case "static":
       return renderStatic(Component);
     case "client-only":
-    // TODO render static then hydrate with ReactDOM.hydrate on client
+      // TODO render static then hydrate with ReactDOM.hydrate on client
+      return (
+        tryOrPrint(
+          () => [src],
+          () => renderClientOnly(Component, routeFile),
+        ) || {
+          type: "static",
+          html: "build error",
+        }
+      );
     default:
       throw new Error(`${render} render strategy not implemented yet`);
   }
