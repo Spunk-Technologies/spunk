@@ -1,4 +1,14 @@
 {
   "name": "framework-without-a-name",
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.0.2",
+  "workspaces": [
+    "packages/*",
+    "examples/*",
+    "experiments/*"
+  ],
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  }
 }
