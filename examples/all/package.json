@@ -1,0 +1,13 @@
+{
+  "name": "all",
+  "scripts": {
+    "build": "yarn framework"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "framework": "workspace:^"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}
