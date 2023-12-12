@@ -1,0 +1,6 @@
+{
+  "name": "browser-loading-order",
+  "scripts": {
+    "serve": "python3 -m http.server"
+  }
+}

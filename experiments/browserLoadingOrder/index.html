@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>JS and CSS preload example</title>
+  <style>
+    body {
+      margin: 0px;
+
+      width: 100vw;
+      height: 201vh;
+      background-color: aqua;
+
+      container: body / normal;
+    }
+  </style>
+
+
+  <!-- <link rel="preload" href="headStyle.css" as="style" /> -->
+  <!-- <link rel="preload" href="bodyJS.js" as="script" /> -->
+  <!-- <link rel="preload" href="bodyStyle.css" as="style" /> -->
+
+  <!-- This should be inlined actually -->
+  <link rel="stylesheet" href="headStyle.css" />
+  <!-- <style>
+    @container body (height > 200vh) {
+      @import url("bodyStyle.css");
+    }
+  </style> -->
+
+  <!-- Defer loading a style sheet -->
+  <!-- <link rel="preload" href="bodyStyle.css" as="style" /> -->
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="bodyStyle.css" media="print" onload="this.media='all'" />
+</head>
+
+<body>
+  <h1>bouncing balls</h1>
+  <canvas></canvas>
+
+  <!-- <script src="bodyJS.js"></script> -->
+</body>
+
+</html>
