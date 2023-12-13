@@ -12,7 +12,10 @@ export async function saveClientOnly(
   await Promise.all([
     writeFile(
       savePath,
-      `<head>${preloadTag}</head>${renderInfo.html}${scriptTag}`,
+
+      // TODO Generate better HTML
+      // TODO Allow users to add elements to <head> tag
+      `<!doctype html><head>${preloadTag}</head><body>${renderInfo.html}${scriptTag}</body>`,
     ),
     writeFile(savePath.replace(".html", ".js"), renderInfo.javascript),
   ]);

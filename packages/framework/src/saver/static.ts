@@ -5,5 +5,5 @@ export async function saveStatic(
   savePath: string,
   renderInfo: StaticRenderInfo,
 ): Promise<void> {
-  await writeFile(savePath, renderInfo.html);
+  await writeFile(savePath, `<!doctype html>${renderInfo.html}`);
 }

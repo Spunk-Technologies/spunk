@@ -3,7 +3,7 @@ import { RenderInfo, isRenderStrategy } from "../renderStrategies";
 import { requireFromString } from "../userModuleParser";
 import { renderStatic } from "./static";
 import { renderClientOnly } from "./clientOnly";
-import { CompileType, compile } from "../compiler/esbuild";
+import { CompileType, compileDynamic } from "../compiler/esbuild";
 import { tryOrPrint } from "../logging/errorHandling";
 
 // import {Server, render} from "@state-less/react-server";
@@ -12,7 +12,7 @@ import { tryOrPrint } from "../logging/errorHandling";
 // import { PrerenderedComponent } from "react-prerendered-component";
 
 export async function buildRoute(routeFile: string): Promise<RenderInfo> {
-  const src: string = await compile(routeFile, CompileType.CommonJS);
+  const src: string = await compileDynamic(routeFile, CompileType.CommonJS);
 
   const { default: Component, render = DEFAULT_RENDERING_STRATEGY } =
     requireFromString(src, routeFile, ROUTER_DIR, [
@@ -47,7 +47,12 @@ export async function buildRoute(routeFile: string): Promise<RenderInfo> {
       // TODO render static then hydrate with ReactDOM.hydrate on client
       return (
         tryOrPrint(
-          () => [src],
+          (e) => [
+            src,
+            "\n\n=============================================\n\n",
+            e.toString(),
+            e.stack,
+          ],
           () => renderClientOnly(Component, routeFile),
         ) || {
           type: "static",

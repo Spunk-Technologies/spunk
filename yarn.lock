@@ -2003,6 +2003,7 @@ __metadata:
   dependencies:
     "@types/react": "npm:^18.2.43"
     framework: "workspace:^"
+    preact: "npm:^10.19.3"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
   languageName: unknown
@@ -4100,6 +4101,8 @@ __metadata:
     esbuild: "npm:^0.19.9"
     jsdom: "npm:^23.0.1"
     npm-dts: "npm:^1.3.12"
+    preact: "npm:^10.19.3"
+    preact-render-to-string: "npm:^6.3.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-reconciler: "npm:^0.29.0"
@@ -6826,6 +6829,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"preact-render-to-string@npm:^6.3.1":
+  version: 6.3.1
+  resolution: "preact-render-to-string@npm:6.3.1"
+  dependencies:
+    pretty-format: "npm:^3.8.0"
+  peerDependencies:
+    preact: ">=10"
+  checksum: bc2f64de7d5dc16b32ad89e53a2d2c39fb0a0a55d1ebb3966cfdac3d8434f1e73293b543bacf85aef30f58ceb5ff153b606ac6b8a25d96f2462389f7054734d7
+  languageName: node
+  linkType: hard
+
+"preact@npm:^10.19.3":
+  version: 10.19.3
+  resolution: "preact@npm:10.19.3"
+  checksum: 251b237cc6fc8c39e4dc6cd65df1964b9622ec6005ccdaa57ea43171ba3e1e0f1e3386bbade370b2ce26ea480ceb73ea36b40e635e35e017e2d8614a233e1bed
+  languageName: node
+  linkType: hard
+
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
@@ -6868,6 +6889,13 @@ __metadata:
     ansi-styles: "npm:^5.0.0"
     react-is: "npm:^18.0.0"
   checksum: edc5ff89f51916f036c62ed433506b55446ff739358de77207e63e88a28ca2894caac6e73dcb68166a606e51c8087d32d400473e6a9fdd2dbe743f46c9c0276f
+  languageName: node
+  linkType: hard
+
+"pretty-format@npm:^3.8.0":
+  version: 3.8.0
+  resolution: "pretty-format@npm:3.8.0"
+  checksum: 69f12937bfb7b2a537a7463b9f875a16322401f1e44d7702d643faa0d21991126c24c093217ef6da403b54c15942a834174fa1c016b72e2cb9edaae6bb3729b6
   languageName: node
   linkType: hard
 

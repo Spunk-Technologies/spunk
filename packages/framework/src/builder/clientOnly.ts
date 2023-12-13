@@ -1,26 +1,30 @@
-import { createElement } from "react";
-import { renderToPipeableStream, renderToString } from "react-dom/server";
+import { h, options } from "preact";
+import { renderToString } from "preact-render-to-string";
 // import { createRoot } from "react-dom/client";
 import { ClientOnlyRenderInfo } from "../renderStrategies";
 import { CompileType, compileStringWithDeps } from "../compiler/esbuild";
 import { tryOrPrintAndThrow } from "../logging/errorHandling";
+import { RENDER } from "../preact/constants";
 // import { Writable } from "stream";
-import { JSDOM } from "jsdom";
+// import { JSDOM } from "jsdom";
 
 const FIRST_HTML_TAG_REGEX = /^<[a-zA-Z]+>/;
 
-const dom = new JSDOM();
-globalThis.window = dom.window as any;
+// const dom = new JSDOM();
+// globalThis.window = dom.window as any;
 
 export async function renderClientOnly(
   Component: any,
   routeFile: string,
 ): Promise<ClientOnlyRenderInfo> {
+  // @ts-ignore
+  // options[RENDER] = (vnode) => {
+  //   throw new Error("I broke it");
+  // };
+  // console.log("options", JSON.stringify(options, null, 2));
   const html = tryOrPrintAndThrow(`failed to render ${routeFile}`, () =>
     renderToString(
-      tryOrPrintAndThrow(`failed to create element`, () =>
-        createElement(Component),
-      ),
+      tryOrPrintAndThrow(`failed to create element`, () => h(Component, null)),
     ),
   );
 
@@ -54,23 +58,22 @@ export async function renderClientOnly(
     throw new Error();
   }
 
-  const tag = rawTag.substring(1, rawTag.length - 1);
+  const rootId = "root"; // TODO perhaps randomly generate here?
 
   const src = await compileStringWithDeps(
     CompileType.Module,
     [routeFile],
     `
-    import React from "react";
-    import ReactDOM from "react-dom/client";
+    import {h, hydrate} from "preact";
     import Component from "./${routeFile}";
 
-    async function clientSideMain() {
-      const rootNode = document.getElementsByTagName(tag)[0];
+    function clientSideMain() {
+      const rootNode = document.getElementById("${rootId}");
       if (!rootNode) {
-        throw new Error(\`can not find a ${tag} tag. what?\`);
+        throw new Error(\`can not find a tag with id "${rootId}". what?\`);
       }
 
-      const root = ReactDOM.hydrateRoot(rootNode, React.createElement(Component));
+      hydrate(h(Component, null), rootNode);
     }
 
     clientSideMain();
@@ -78,7 +81,7 @@ export async function renderClientOnly(
   );
   return {
     type: "client-only",
-    html,
+    html: `<div id="${rootId}">${html}</div>`,
     javascript: src,
   };
 }

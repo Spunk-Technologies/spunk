@@ -2,9 +2,11 @@
 
 - [ ] Rendering Strategies
   - [x] Static
-  - [ ] Client Only
+  - [x] Client Only
     - [x] init impl
-    - [ ] find something that works better. basic hooks don't work with react-dom
+    - [x] find something that works better. basic hooks don't work with react-dom
+    - [ ] Generate better HTML
+    - [ ] Allow users to add elements to \<head> tag
   - [ ] Server Only
   - [ ] Server and Client
 - [ ] HTML Layouts
@@ -15,5 +17,9 @@
 - [ ] Compare Speed of MJS loading and CJS loading in browser
 - [ ] Use web workers to pre-render pages client side
   - [ ] Preact example: https://github.com/developit/preact-worker-demo/tree/master
-- [ ] Use Preact instead of React it's soooo much better
+- [x] Use Preact instead of React it's soooo much better
+- [ ] Compile user scripts to ESM to allow tree shaking
 - [ ] Clean up Framework & Example dependencies (after done testing rendering methods)
+- [ ] TS config for example
+- [ ] TS config for framework
+- [ ] Better way for JS entrypoint templates

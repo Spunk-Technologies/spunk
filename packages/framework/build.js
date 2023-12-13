@@ -12,7 +12,7 @@ const sharedConfig = {
   bundle: true,
   minify: false,
   external: Object.keys(dependencies || {}).concat(
-    Object.keys(peerDependencies || {})
+    Object.keys(peerDependencies || {}),
   ),
 };
 

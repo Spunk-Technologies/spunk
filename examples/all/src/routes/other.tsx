@@ -1,4 +1,3 @@
-import React from "react";
 import type { RenderStrategy } from "framework";
 
 export const render: RenderStrategy = "static";

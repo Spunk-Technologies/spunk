@@ -1,6 +1,9 @@
 import { readdir, mkdir, rm, stat } from "fs/promises";
 import React, { useState } from "react";
 
+// Must be the first import
+import "preact/debug";
+
 import { BUILD_DIR, ROUTER_DIR, parseConfig } from "./config";
 import { buildRoute } from "./builder";
 import { saveRoute } from "./saver";

@@ -54,6 +54,7 @@ export async function compile(
   file: string,
   compileType: CompileType,
   globalName?: string,
+  external?: string[],
 ) {
   // const { dependencies = {}, peerDependencies = {} } = await getPackageJson();
   // console.log(
@@ -68,12 +69,34 @@ export async function compile(
   const buildResult = await build({
     ...SHARED_COMPILE_OPTIONS,
     entryPoints: [file],
-    // external: Object.keys(dependencies).concat(Object.keys(peerDependencies)),
+    external,
     platform: compileType,
     globalName,
   });
 
   return parseBuildResult(buildResult, file);
+}
+
+export async function compileDynamic(
+  file: string,
+  compileType: CompileType,
+  globalName?: string,
+) {
+  const { dependencies = {}, peerDependencies = {} } = await getPackageJson();
+  // console.log(
+  //   "external",
+  //   JSON.stringify(
+  //     Object.keys(dependencies).concat(Object.keys(peerDependencies)),
+  //     null,
+  //     2,
+  //   ),
+  // );
+
+  const external = Object.keys(dependencies).concat(
+    Object.keys(peerDependencies),
+  );
+
+  return compile(file, compileType, globalName, external);
 }
 
 const getPackageJson = (() => {
@@ -84,7 +107,7 @@ const getPackageJson = (() => {
       packageJson = JSON.parse(
         (await readFile("./package.json", { encoding: "utf-8" })) || "{}",
       );
-      console.log("packageJson", JSON.stringify(packageJson, null, 2));
+      // console.log("packageJson", JSON.stringify(packageJson, null, 2));
     }
 
     return packageJson!;

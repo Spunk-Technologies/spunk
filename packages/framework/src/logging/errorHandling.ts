@@ -12,7 +12,13 @@ export function tryOrPrint<T>(
   f: () => T,
 ): T | undefined {
   try {
-    return f();
+    const res = f();
+    if ((res as any).catch) {
+      return (res as Promise<unknown>).catch((e) =>
+        console.error(...print(e)),
+      ) as any;
+    }
+    return res;
   } catch (e) {
     console.error(...print(e));
   }
