@@ -41,11 +41,13 @@ Most of the JavaScript frameworks out there are not very performant when there i
 
 ## FAQ
 
-##### Is "Framework without a Name" really the name of the framework?
+#### Is "Framework without a Name" really the name of the framework?
 
-Yes, for now. Naming things isn't really one of my strong suits, and I much rather focus on features for the project than sit around thinking of a name. However, I'm opened to ideas. See #1 for discussion.
+Yes, for now. Naming things isn't really one of my strong suits, and I much rather focus on features for the project than sit around thinking of a name. However, I'm opened to ideas. See [#1][i1] for discussion.
 
-##### Why doesn't this project have an open source license?
+[i1]: https://github.com/Geo25rey/framework-without-a-name/1
+
+#### Why doesn't this project have an open source license?
 
 Starting an open source project alone with my main focus being developing a good framework, it doesn't make much sense to me to just let anyone (mainly big companies) to use this for free. I believe I'm working on something very valuable to many people and companies and don't want to end up with millions of users and not be earning a livable income from that.
 
