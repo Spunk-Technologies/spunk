@@ -14,3 +14,6 @@
 - [x] Defer CSS loading for elements not in view
 - [ ] Compare Speed of MJS loading and CJS loading in browser
 - [ ] Use web workers to pre-render pages client side
+  - [ ] Preact example: https://github.com/developit/preact-worker-demo/tree/master
+- [ ] Use Preact instead of React it's soooo much better
+- [ ] Clean up Framework & Example dependencies (after done testing rendering methods)
