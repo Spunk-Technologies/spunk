@@ -23,3 +23,9 @@
 - [ ] TS config for example
 - [ ] TS config for framework
 - [ ] Better way for JS entrypoint templates
+- [ ] Experiment with the option to pre-render
+  - [ ] Client Only
+  - [ ] Server Only
+  - [ ] Server and Client
+- [ ] Use [Java Research license](https://github.com/deroproject/derohe/blob/main/license.txt) for LICENSE.md
+  - [ ] Add licenses folder for dependencies
