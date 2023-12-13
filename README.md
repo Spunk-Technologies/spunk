@@ -45,7 +45,7 @@ Most of the JavaScript frameworks out there are not very performant when there i
 
 Yes, for now. Naming things isn't really one of my strong suits, and I much rather focus on features for the project than sit around thinking of a name. However, I'm opened to ideas. See [#1][i1] for discussion.
 
-[i1]: https://github.com/Geo25rey/framework-without-a-name/1
+[i1]: https://github.com/Geo25rey/framework-without-a-name/issues/1
 
 #### Why doesn't this project have an open source license?
 
