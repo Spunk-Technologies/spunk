@@ -6,6 +6,34 @@ An ambitious next generation JavaScript framework similar to Next.JS with option
 
 This project is actively in development. See the [Features Section](#features) below for a breakdown of what is usable and planned. This should **not** be used in production, yet. If you'd like to see my more raw thoughts and more immediate plan see my [TODO](TODO.md)
 
+## Build Instructions
+
+1. Install Node.js v14.19 / v16.9 or greater
+2. Enable Corepack
+   `npx corepack enable`
+3. Install Dependencies
+   `npx yarn`
+4. Open `packages/framework` folder
+   `cd packages/framework`
+5. Build
+   `npx yarn build`
+
+## Usage
+
+1. Build Instructions
+2. Open `examples`
+   `cd examples`
+3. Copy `examples/all` to `examples/your-name-here`
+   `cp -r all your-name-here`
+4. Open your new package
+   `cd your-name-here`
+5. Install Dependencies
+   `npx yarn`
+6. Build
+   `npx yarn build`
+7. Serve the `build` folder and enjoy! I like using python for this but anything can work.
+   `python -m http.server -d build`
+
 ## Why?
 
 Most of the JavaScript frameworks out there are not very performant when there is more than a few pages. And out of the frameworks that are somewhat performant, they either require extra configuration, especially for pre-rendering, or require developers to learn a completely new style of writing JavaScript (again?) and with no standard ecosystem of components from React.
