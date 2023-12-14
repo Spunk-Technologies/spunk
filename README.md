@@ -81,6 +81,6 @@ Starting an open source project alone with my main focus being developing a good
 
 I don't have a marketing department or legal team, so please do me a favor, spread the word and don't use this software in an unauthorized way. And don't forget to contribute if you have some input.
 
-For individuals, eduction, or even small companies just starting out (<5 employees), I don't really care and I encourage all of you to use this.
+For individuals, education, or even small companies just starting out (<5 employees), I don't really care and I encourage all of you to use this.
 
 For anyone (anything?) else, let's setup a custom license for your use of this software. No, I won't sell this IP.
