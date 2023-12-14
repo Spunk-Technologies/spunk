@@ -1,9 +1,11 @@
-import { h } from "preact";
+import { h, ComponentType, VNode } from "preact";
 import renderToString from "preact-render-to-string";
 import { StaticRenderInfo } from "../renderStrategies";
 
-export function renderStatic(Component: any): StaticRenderInfo {
-  const html = renderToString(h(Component, {}));
+export function renderStatic(
+  Component: ComponentType<never>,
+): StaticRenderInfo {
+  const html = renderToString(h(Component, null) as VNode);
   return {
     type: "static",
     html,

@@ -1,4 +1,4 @@
-import { h, options } from "preact";
+import { h, ComponentType, VNode } from "preact";
 import { renderToString } from "preact-render-to-string";
 // import { createRoot } from "react-dom/client";
 import { ClientOnlyRenderInfo } from "../renderStrategies";
@@ -14,7 +14,7 @@ const FIRST_HTML_TAG_REGEX = /^<[a-zA-Z]+>/;
 // globalThis.window = dom.window as any;
 
 export async function renderClientOnly(
-  Component: any,
+  Component: ComponentType<never>,
   routeFile: string,
 ): Promise<ClientOnlyRenderInfo> {
   // @ts-ignore
@@ -24,7 +24,10 @@ export async function renderClientOnly(
   // console.log("options", JSON.stringify(options, null, 2));
   const html = tryOrPrintAndThrow(`failed to render ${routeFile}`, () =>
     renderToString(
-      tryOrPrintAndThrow(`failed to create element`, () => h(Component, null)),
+      // TODO remove as VNODE when PR is live https://github.com/preactjs/preact-render-to-string/pull/326
+      tryOrPrintAndThrow(`failed to create element`, () =>
+        h(Component, null),
+      ) as VNode,
     ),
   );
 

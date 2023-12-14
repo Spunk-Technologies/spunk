@@ -33,7 +33,7 @@ export function requireFromString(
   filename: string,
   dir: string,
   disAllowedModules: string[],
-) {
+): unknown {
   // console.log(`Module.wrap(${filename}) = ${Module.wrap(src)}`);
   // console.log(`${filename} = ${src}`);
 

@@ -5,6 +5,7 @@ import { renderStatic } from "./static";
 import { renderClientOnly } from "./clientOnly";
 import { CompileType, compileDynamic } from "../compiler/esbuild";
 import { tryOrPrint } from "../logging/errorHandling";
+import { ComponentType, h } from "preact";
 
 // import {Server, render} from "@state-less/react-server";
 // import { jsx } from "@state-less/react-server/dist/jsxRenderer/jsx-runtime";
@@ -14,10 +15,11 @@ import { tryOrPrint } from "../logging/errorHandling";
 export async function buildRoute(routeFile: string): Promise<RenderInfo> {
   const src: string = await compileDynamic(routeFile, CompileType.CommonJS);
 
-  const { default: Component, render = DEFAULT_RENDERING_STRATEGY } =
+  const { Component, render = DEFAULT_RENDERING_STRATEGY } = getModuleFields(
     requireFromString(src, routeFile, ROUTER_DIR, [
       // "@state-less/react-server",
-    ]) || {};
+    ]),
+  );
 
   if (!Component) {
     throw new Error(`${routeFile} is missing default exported Component`);
@@ -62,4 +64,36 @@ export async function buildRoute(routeFile: string): Promise<RenderInfo> {
     default:
       throw new Error(`${render} render strategy not implemented yet`);
   }
+}
+
+function getModuleFields(
+  mod: unknown,
+): Partial<{ Component: ComponentType<never>; render: unknown }> {
+  const res: Partial<{ Component: ComponentType<never>; render: unknown }> = {};
+  if (typeof mod !== "object") {
+    throw new Error(
+      "exports is not an object. what is going on?\n" +
+        "Please file an issue with this stacktrace and a link to your project.\n" +
+        "https://github.com/Geo25rey/framework-without-a-name/issues",
+    );
+  }
+
+  if (!mod) {
+    throw new Error(
+      "exports is a null object. what is going on?\n" +
+        "Please file an issue with this stacktrace and a link to your project.\n" +
+        "https://github.com/Geo25rey/framework-without-a-name/issues",
+    );
+  }
+
+  if ("default" in mod) {
+    h(mod.default as any, null);
+    res.Component = mod.default as any;
+  }
+
+  if ("render" in mod) {
+    res.render = mod.render;
+  }
+
+  return res;
 }
