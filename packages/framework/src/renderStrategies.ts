@@ -22,8 +22,13 @@ export interface ClientOnlyRenderInfo extends GenericRenderInfo {
   javascript: string;
 }
 
+export interface ServerOnlyRenderInfo extends GenericRenderInfo {
+  type: "server-only";
+  javascript: string;
+}
+
 export type RenderInfo = GenericRenderInfo &
-  (StaticRenderInfo | ClientOnlyRenderInfo);
+  (StaticRenderInfo | ClientOnlyRenderInfo | ServerOnlyRenderInfo);
 
 export function isRenderStrategy(strat: any): strat is RenderStrategy {
   return VALID_RENDER_STRATEGIES.includes(strat);

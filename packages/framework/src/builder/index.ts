@@ -5,6 +5,7 @@ import { renderStatic } from "./static";
 import { renderClientOnly } from "./clientOnly";
 import { CompileType, compileDynamic } from "../compiler/esbuild";
 import { tryOrPrint } from "../logging/errorHandling";
+import { renderServerOnly } from "./serverOnly";
 import { ComponentType, h } from "preact";
 
 // import {Server, render} from "@state-less/react-server";
@@ -61,6 +62,8 @@ export async function buildRoute(routeFile: string): Promise<RenderInfo> {
           html: "build error",
         }
       );
+    case "server-only":
+      return renderServerOnly(Component, routeFile);
     default:
       throw new Error(`${render} render strategy not implemented yet`);
   }

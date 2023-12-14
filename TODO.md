@@ -8,6 +8,9 @@
     - [ ] Generate better HTML
     - [ ] Allow users to add elements to \<head> tag
   - [ ] Server Only
+    - [ ] Self-hosted
+      - [x] Build
+      - [ ] Built-in Server
   - [ ] Server and Client
 - [ ] HTML Layouts
 - [ ] Plugins?
@@ -19,7 +22,7 @@
   - [ ] Preact example: https://github.com/developit/preact-worker-demo/tree/master
 - [x] Use Preact instead of React it's soooo much better
 - [ ] Compile user scripts to ESM to allow tree shaking
-- [ ] Clean up Framework & Example dependencies (after done testing rendering methods)
+- [x] Clean up Framework & Example dependencies (after done testing rendering methods)
 - [ ] TS config for example
 - [ ] TS config for framework
 - [ ] Better way for JS entrypoint templates

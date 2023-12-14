@@ -21,28 +21,37 @@ const generating = new Generator(
     }
   });
 
+/**
+@type import('esbuild').BuildOptions
+*/
 const sharedConfig = {
-  entryPoints: ["src/index.ts"],
+  platform: "node", // for CJS
   bundle: true,
   minify: false,
-  external: Object.keys(dependencies || {}).concat(
-    Object.keys(peerDependencies || {}),
-  ),
 };
 
 // console.log("Building index.ts");
 const building = build({
   ...sharedConfig,
-  platform: "node", // for CJS
-  outfile: "dist/index.js",
+  entryPoints: ["src/index.ts"],
+  outdir: "dist",
+  external: Object.keys(dependencies || {}).concat(
+    Object.keys(peerDependencies || {}),
+  ),
 });
 // .then(() => console.log("Finished building index.ts"));
 
+build({
+  ...sharedConfig,
+  entryPoints: ["src/templates/*"],
+  outdir: "dist/templates",
+  external: Object.keys(dependencies || {}).concat(
+    Object.keys(peerDependencies || {}),
+  ),
+});
 // build({
 //   ...sharedConfig,
 //   outfile: "dist/index.esm.js",
 //   platform: "neutral", // for ESM
 //   format: "esm",
 // });
-
-Promise.all([generating, building]);

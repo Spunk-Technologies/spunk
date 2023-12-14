@@ -4,6 +4,7 @@ import { join } from "path";
 import { BUILD_DIR } from "../config";
 import { mkdir } from "fs/promises";
 import { saveClientOnly } from "./clientOnly";
+import { saveServerOnly } from "./serverOnly";
 
 export async function saveRoute(
   route: string,
@@ -18,6 +19,8 @@ export async function saveRoute(
       return saveStatic(savePath, renderInfo);
     case "client-only":
       return saveClientOnly(savePath, renderInfo);
+    case "server-only":
+      return saveServerOnly(savePath, renderInfo);
     default:
       throw new Error(
         `${
