@@ -35,21 +35,19 @@ const building = build({
   ...sharedConfig,
   entryPoints: ["src/index.ts"],
   outdir: "dist",
-  external: Object.keys(dependencies || {})
-    .concat(Object.keys(peerDependencies || {}))
-    .filter((mod) => !mod.startsWith("@framework"))
-    .concat(...["./fsevents.node"]),
-});
-// .then(() => console.log("Finished building index.ts"));
-
-build({
-  ...sharedConfig,
-  entryPoints: ["src/templates/*"],
-  outdir: "dist/templates",
   external: Object.keys(dependencies || {}).concat(
     Object.keys(peerDependencies || {}),
   ),
 });
+// .then(() => console.log("Finished building index.ts"));
+
+// build({
+//   ...sharedConfig,
+//   entryPoints: ["src/index.ts"],
+//   outdir: "dist",
+//   entryNames: "[name].bundled",
+// });
+
 // build({
 //   ...sharedConfig,
 //   outfile: "dist/index.esm.js",

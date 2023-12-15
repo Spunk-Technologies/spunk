@@ -1,6 +1,6 @@
 import { ROUTER_DIR, DEFAULT_RENDERING_STRATEGY } from "../config";
 import { RenderInfo, isRenderStrategy } from "../renderStrategies";
-import { requireFromString } from "../userModuleParser";
+import { requireFromString } from "@framework/utils";
 import { renderStatic } from "./static";
 import { renderClientOnly } from "./clientOnly";
 import { CompileType, compileDynamic } from "../compiler/esbuild";

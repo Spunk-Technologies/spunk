@@ -11,6 +11,7 @@
     - [ ] Self-hosted
       - [x] Build
       - [ ] Built-in Server
+      - [ ] Add back `preact` and `preact-render-to-string` for server-side hydration
   - [ ] Server and Client
 - [ ] HTML Layouts
 - [ ] Plugins?
