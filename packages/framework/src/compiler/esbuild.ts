@@ -104,9 +104,7 @@ const getPackageJson = (() => {
 
   return async function getPackageJson(): Promise<Record<string, any>> {
     if (packageJson === undefined) {
-      packageJson = JSON.parse(
-        (await readFile("./package.json", { encoding: "utf-8" })) || "{}",
-      );
+      packageJson = require("../../package.json");
       // console.log("packageJson", JSON.stringify(packageJson, null, 2));
     }
 
