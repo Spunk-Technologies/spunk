@@ -19,6 +19,7 @@ export async function format(code: string): Promise<string> {
   const buildResult = await build({
     stdin: {
       contents: code,
+      loader: "tsx",
     },
     minify: DEBUG_MINIFY,
     write: false,
