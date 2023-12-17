@@ -26,7 +26,7 @@ export async function renderClientOnly(
     renderToString(
       // TODO remove as VNODE when PR is live https://github.com/preactjs/preact-render-to-string/pull/326
       tryOrPrintAndThrow(`failed to create element`, () =>
-        h(Component, null),
+        h(Component, null as never),
       ) as VNode,
     ),
   );

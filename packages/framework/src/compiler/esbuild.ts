@@ -126,7 +126,7 @@ function parseBuildResult<T extends BuildOptions>(
     throw new Error();
   }
 
-  if ((buildResult.outputFiles?.length || 0) !== 1) {
+  if (!buildResult.outputFiles || (buildResult.outputFiles.length || 0) !== 1) {
     console.log(
       JSON.stringify(
         (buildResult.outputFiles ?? []).map((output) => ({
@@ -146,5 +146,5 @@ function parseBuildResult<T extends BuildOptions>(
     throw new Error();
   }
 
-  return buildResult.outputFiles![0].text;
+  return buildResult.outputFiles[0].text;
 }
