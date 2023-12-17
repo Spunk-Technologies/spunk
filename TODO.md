@@ -10,8 +10,8 @@
   - [ ] Server Only
     - [ ] Self-hosted
       - [x] Build
-      - [ ] Built-in Server
-      - [ ] Add back `preact` and `preact-render-to-string` for server-side hydration
+      - [x] Built-in Server
+      - [ ] Add back `preact` and `preact-render-to-string` for server-side hydration (from pre-rendered html)
   - [ ] Server and Client
 - [ ] HTML Layouts
 - [ ] Plugins?
@@ -33,3 +33,7 @@
   - [ ] Server and Client
 - [ ] Use [Java Research license](https://github.com/deroproject/derohe/blob/main/license.txt) for LICENSE.md
   - [ ] Add licenses folder for dependencies
+- [ ] Router
+  - [ ] Use a tags w/ onclick e.preventDefault() (links work but won't be optimized until JS loads)
+  - [x] Generate types based on routes directory structure
+- [ ] Use [nginx](https://github.com/jirutka/nginx-binaries?tab=readme-ov-file#usage-example) as self-hosted server instead
