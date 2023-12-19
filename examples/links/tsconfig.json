@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "types": ["preact", "@framework/router/routes", "./build/routes.d.ts"],
+
+    "esModuleInterop": true,
+    "target": "ES2019",
+    "module": "commonjs"
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
+}
