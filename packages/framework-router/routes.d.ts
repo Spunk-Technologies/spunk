@@ -1,3 +1,6 @@
 declare namespace Routes {
-  export type Path = DefinedPaths & string;
+  export type Path = (any extends UserDefinedPaths
+    ? DefinedPaths
+    : UserDefinedPaths | DefinedPaths) &
+    string;
 }
