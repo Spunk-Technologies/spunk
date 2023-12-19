@@ -36,4 +36,6 @@
 - [ ] Router
   - [ ] Use a tags w/ onclick e.preventDefault() (links work but won't be optimized until JS loads)
   - [x] Generate types based on routes directory structure
+  - [ ] Implement service worker for client side pre rendering
+    - [ ] Fallback to normal worker if service work unavailable
 - [ ] Use [nginx](https://github.com/jirutka/nginx-binaries?tab=readme-ov-file#usage-example) as self-hosted server instead
