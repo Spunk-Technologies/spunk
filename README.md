@@ -1,4 +1,4 @@
-# Framework without a Name
+# Spunk
 
 An ambitious next generation JavaScript framework similar to Next.JS with options to not send any JS to the client and without the bulk of React. Instead, it uses [Preact](https://preactjs.com/) and its React compatiblity layer `preact/compat`.
 
@@ -41,6 +41,8 @@ Most of the JavaScript frameworks out there are not very performant when there i
 ## Goals
 
 - Static site generation as much as possible
+- "Nice" developer experience
+- Performance at build time and run time
 - Have an easily attainable Chrome Lighthouse 100% performance score for all use cases
 - Server side rendering in any environment (Edge, Serverless, and Self-hosted)
 - Keep source code small, simple, and easy to understand
@@ -53,11 +55,15 @@ Most of the JavaScript frameworks out there are not very performant when there i
     - Pre-renders the page at build time and serves to the client **without** any JavaScript
   - [x] Client Only
     - Pre-renders the page at build time and serves to the client **with** its JavaScript bundle and hydrates into the pre-rendered page
-  - [ ] Server Only
+  - [x] Server Only
     - Renders the page on a server and serves it to the client **without** any JavaScript
   - [ ] Client and Server
     - Renders the page on a server and serves it to the client **with** its JavaScript bundle and hydrates into the page
 - [x] Typescript
+- [ ] Routing
+  - [x] File based routing in the ./src/routes directory relative to project's package.json
+  - [x] Type safe [`Link`s](packages/framework-router/src/components/Link.tsx) to local routes. See [example](examples/links) for more details
+  - [ ] [Hybrid Routing](docs/HYBRID_ROUTING.md) where the client and server optimize the loading of routes in the background
 - [ ] Built-in development server
 - [ ] Server Environments
   - [ ] Edge
@@ -68,12 +74,6 @@ Most of the JavaScript frameworks out there are not very performant when there i
   - [ ] Self-hosted
 
 ## FAQ
-
-#### Is "Framework without a Name" really the name of the framework?
-
-Yes, for now. Naming things isn't really one of my strong suits, and I much rather focus on features for the project than sit around thinking of a name. However, I'm opened to ideas. See [#1][i1] for discussion.
-
-[i1]: https://github.com/Geo25rey/framework-without-a-name/issues/1
 
 #### Why doesn't this project have an open source license?
 
