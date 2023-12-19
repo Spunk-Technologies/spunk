@@ -705,6 +705,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"browser-fork-bomb@workspace:experiments/browserForkBomb":
+  version: 0.0.0-use.local
+  resolution: "browser-fork-bomb@workspace:experiments/browserForkBomb"
+  languageName: unknown
+  linkType: soft
+
 "browser-loading-order@workspace:experiments/browserLoadingOrder":
   version: 0.0.0-use.local
   resolution: "browser-loading-order@workspace:experiments/browserLoadingOrder"

@@ -1,0 +1,6 @@
+{
+  "name": "browser-fork-bomb",
+  "scripts": {
+    "serve": "python3 -m http.server"
+  }
+}
