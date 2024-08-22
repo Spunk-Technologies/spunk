@@ -1,5 +1,10 @@
 import LiveDirectory from "live-directory";
 import { DEV_MODE } from "./config";
+import fs from "fs";
+
+try {
+  fs.mkdirSync("build");
+} catch {}
 
 export const assets = new LiveDirectory("build", {
   // Optional: Configure filters to ignore or include certain files, names, extensions etc etc.
