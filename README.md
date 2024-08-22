@@ -67,6 +67,7 @@ Most of the JavaScript frameworks out there are not very performant when there i
   - [x] Type safe [`Link`s](packages/framework-router/src/components/Link.tsx) to local routes. See [example](examples/links) for more details
   - [ ] [Hybrid Routing](docs/HYBRID_ROUTING.md) where the client and server optimize the loading of routes in the background
 - [ ] Built-in development server
+- [ ] Edge compatible Database integration
 - [ ] Server Environments
   - [ ] Edge
     - [ ] Cloudflare Pages/Workers

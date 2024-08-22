@@ -39,3 +39,5 @@
   - [ ] Implement service worker for client side pre rendering
     - [ ] Fallback to normal worker if service work unavailable
 - [ ] Use [nginx](https://github.com/jirutka/nginx-binaries?tab=readme-ov-file#usage-example) as self-hosted server instead
+- [ ] DB integration
+  - [ ] FoundationDB
