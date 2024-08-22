@@ -10,7 +10,7 @@ See the [Features Section](#features) below for a breakdown of what is usable an
 
 ## Build Instructions
 
-1. Install Node.js v14.19 / v16.9 or greater
+1. Install Node.js 16, 18, or 20 LTS
 2. Enable Corepack
    `npx corepack enable`
 3. Install Dependencies
