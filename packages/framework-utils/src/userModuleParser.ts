@@ -1,5 +1,5 @@
 import Module from "module";
-import { USE_SET_DURING_MODULE_RESOLUTION } from "/Users/geoffrey/Programming/framework-without-a-name/packages/framework/src/config";
+import { USE_SET_DURING_MODULE_RESOLUTION } from "../../framework/src/config";
 
 function createModuleResolverWithSet(
   disAllowedModules: string[],
