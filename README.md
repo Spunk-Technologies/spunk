@@ -33,8 +33,8 @@ See the [Features Section](#features) below for a breakdown of what is usable an
    `npx yarn`
 6. Build
    `npx yarn build`
-7. Serve the `build` folder and enjoy! I like using python for this but anything can work.
-   `python -m http.server -d build`
+7. Serve the `build` folder with the built in Hyper Express powered HTTP server and enjoy!
+   `npx yarn serve`
 
 ## Why?
 

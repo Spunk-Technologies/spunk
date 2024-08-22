@@ -1,7 +1,8 @@
 {
   "name": "links",
   "scripts": {
-    "build": "yarn framework"
+    "build": "yarn framework",
+    "serve": "yarn framework server"
   },
   "devDependencies": {
     "@types/node": "^20.10.4",
