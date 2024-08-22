@@ -6,8 +6,8 @@ import { serveStatic } from "./serving/static";
 export async function main() {
   const server = new Server()
     .use("/ws", hotReload())
-    .use(serveStatic())
-    .use(serveWithServerRendering()) as Server;
+    .use(serveWithServerRendering())
+    .use(serveStatic()) as Server;
 
   for (let i = 3000; i < 4000; i++) {
     try {

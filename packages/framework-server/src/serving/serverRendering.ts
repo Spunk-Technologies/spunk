@@ -7,6 +7,9 @@ import { requireFromString } from "@framework/utils";
 export function serveWithServerRendering(): MiddlewareHandler {
   return async (req, res, next) => {
     let path = req.path;
+    if (path.endsWith("/")) {
+      path = path.slice(0, path.length - 1);
+    }
     const ext = extname(path);
     switch (ext) {
       case "":
