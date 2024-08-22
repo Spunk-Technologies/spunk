@@ -9,8 +9,13 @@ export async function main() {
     .use(serveStatic())
     .use(serveWithServerRendering()) as Server;
 
-  await server.listen(3000);
-  console.log("running on http://localhost:3000");
+  for (let i = 3000; i < 4000; i++) {
+    try {
+      await server.listen(i);
+      console.log(`running on http://localhost:${i}`);
+      break;
+    } catch {}
+  }
 }
 
 // main();
