@@ -4,7 +4,9 @@ An ambitious next generation JavaScript framework similar to Next.JS with option
 
 ## Status
 
-This project is actively in development. See the [Features Section](#features) below for a breakdown of what is usable and planned. This should **not** be used in production, yet. If you'd like to see my more raw thoughts and more immediate plan see my [TODO](TODO.md)
+This project has taken a backseat for my development on @vsc-eco. If there is interest, I'm opened to working on this as a side project.
+
+See the [Features Section](#features) below for a breakdown of what is usable and planned. This should **not** be used in production, yet. If you'd like to see my more raw thoughts and more immediate plan see my [TODO](TODO.md)
 
 ## Build Instructions
 
